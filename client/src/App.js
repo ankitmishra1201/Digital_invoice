@@ -1,24 +1,38 @@
-import logo from './logo.svg';
+import { BrowserRouter as Router, Routes , Route} from 'react-router-dom';
+import { useState } from 'react';
+
+//Pages
+import Homepage from './pages/homepage/Homepage';
+import Productpage from './pages/productpage/Productpage';
+import Cartpage from './pages/cartpage/Cartpage';
+
+//componenets
+import Navbar from './components/navbar/Navbar';
+import Backdrop from './components/backdrop/Backdrop';
+import Sidebar from './components/sidebar/Sidebar';
 import './App.css';
 
 function App() {
+  const [sideToggle, setSideToggle] = useState(false);
   return (
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar click = {()=>{setSideToggle(true)}}/>
+      <Sidebar show = {sideToggle} click = {()=>{setSideToggle(false)}}/> 
+      <Backdrop show = {sideToggle} click = {()=>{setSideToggle(false)}}/>
+      <main>
+        <Routes>
+          <Route exact path = '/' element = {<Homepage/>}/>
+          <Route exact path = '/product/:id' element = {<Productpage/>}/>
+          <Route exact path = '/cart' element = {<Cartpage/>}/>
+        </Routes>
+      </main>
+      {/*HomeScreen*/}
+      {/*ProductScreen*/}
+      {/*ServicesScreen*/}
+      {/*CartScreen*/}
     </div>
+    </Router>
   );
 }
 
