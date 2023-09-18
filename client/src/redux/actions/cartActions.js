@@ -28,6 +28,32 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
     }
 }
 
+export const addToServiceCart = (id, qty) => async (dispatch, getState) => {
+    // async (dispatch) is the return value of the function addToCart
+    try {
+        // console.log("before fetching data");
+        // console.log("id "+id);
+        const {data} = await axios.get(`/api/services/${id}`);
+        // console.log("after fetching data");
+
+    dispatch({
+        type: actionTypes.ADD_TO_SERVICE_CART,
+        payload:{
+            service: data._id,
+            name: data.name,
+            imageUrl: data.imageUrl,
+            price:data.price,
+            countInStock: data.countInStock,
+            qty,
+        },
+    });
+
+    localStorage.setItem('cart', JSON.stringify(getState().cart.cartItems));
+    } catch (error) {
+        console.log('Error adding to cart:', error.message);
+    }
+}
+
 export const removeFromCart = (id) => (dispatch,getState) =>{
     try {
         dispatch({

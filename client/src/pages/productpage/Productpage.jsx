@@ -45,15 +45,47 @@ const Productpage = () => {
         </div>
         <div className="left_info">
           <p className='left_name'>{product.name}</p>
-          <p>${product.price} Only</p>
+          <p>
+
+            Product Price : {product.price}$ 
+          
+          </p>
           <p>{product.description}</p>
         </div>
       </div>
       <div className="product_right">
         <div className='right_info'>
           <p>
-            Price : <span>${product.price}</span>
-          </p>
+            Price : <span>{product.price*qty} $</span>
+           
+            {product.price > 1000 && product.price <=5000 ? (
+            <>
+            <br />
+            Tax : <span><br />{0.12*product.price} $</span> 
+            <br />
+            Sub Total : <span><br />{product.price*qty + 0.12*product.price} $</span>
+            </>
+            )
+            :
+            product.price > 5000 ? (
+              <>
+              <br />
+            Tax :<span><br />{0.18*product.price} $</span>
+            <br />
+            Sub Total : <span><br />{product.price*qty + 0.18*product.price} $</span>
+            </>
+            )
+            :(
+            <>
+            <br />
+            Tax : <span><br />{200} $</span>
+            <br />
+            Sub Total : <span><br />{product.price*qty +200} $</span>
+            </>
+            )
+          }
+          <br />
+        </p>
           <p>
             Status : <span>{product.countInStock > 0 ? <>In Stock</> : <>Not In Stock</>}</span>
           </p>
@@ -72,8 +104,8 @@ const Productpage = () => {
       </div>
         </>
       )}
-      
     </div>
+
   )
 }
 

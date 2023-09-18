@@ -2,7 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require("./config/database");
 const productRoutes = require('./routes/productRoutes');
-// const serviceRoutes = require('./routes/serviceRoutes');
+const serviceRoutes = require('./routes/serviceRoutes');
 
 dotenv.config();
 
@@ -17,7 +17,7 @@ app.get('/', (req,res)=>{
 
 // Routes
 app.use('/api/products',productRoutes);
-// app.use('/api/services',serviceRoutes);
+app.use('/api/services',serviceRoutes);
 
 const PORT = process.env.PORT || 5000;
 try {

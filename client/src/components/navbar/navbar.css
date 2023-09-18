@@ -42,7 +42,7 @@
     transition: 500ms ease-in-out all;
 }
 .cart_link:hover{
- background: rgb(20, 151, 39);
+ background: #ff004f;
  color: #f4f4f4;
  transition: 500ms ease-in-out all;
 
@@ -78,7 +78,7 @@
     transition: 500ms ease-in-out all;
 }
 .hamburger_menu:hover>div{
-    background: rgb(20, 151, 39);
+    background: #ff004f;
     color: #f4f4f4;
     transition: 500ms ease-in-out all;
 }

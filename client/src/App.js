@@ -4,6 +4,7 @@ import { useState } from 'react';
 //Pages
 import Homepage from './pages/homepage/Homepage';
 import Productpage from './pages/productpage/Productpage';
+import ServicePage from './pages/servicepage/ServicePage';
 import Cartpage from './pages/cartpage/Cartpage';
 
 //componenets
@@ -24,12 +25,12 @@ function App() {
         <Routes>
           <Route exact path = '/' element = {<Homepage/>}/>
           <Route exact path = '/product/:id' element = {<Productpage/>}/>
+          <Route exact path = '/service/:id' element = {<ServicePage/>}/>
           <Route exact path = '/cart' element = {<Cartpage/>}/>
         </Routes>
       </main>
       {/*HomeScreen*/}
       {/*ProductScreen*/}
-      {/*ServicesScreen*/}
       {/*CartScreen*/}
     </div>
     </Router>
