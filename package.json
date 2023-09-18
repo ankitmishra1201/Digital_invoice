@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node api/index.js",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon api/index.js",
     "client": "npm start --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "dev": "node api/index.js",
     "data:import": "node api/seederScript.js"
   },
   "keywords": [],
