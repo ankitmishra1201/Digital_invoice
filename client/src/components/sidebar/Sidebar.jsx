@@ -1,9 +1,17 @@
 import React from 'react'
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom'
 import './sidebar.css'
 
 const Sidebar = ({show,click}) => {
     const sideBarClass = ['sidebar']
+
+    const cart = useSelector(state => state.cart);
+const {cartItems} = cart;
+
+const getCartCount = () =>{
+  return cartItems.reduce((qty,item)=> qty + item.qty, 0);
+}
 
     if(show){
         sideBarClass.push('show')
@@ -16,7 +24,7 @@ const Sidebar = ({show,click}) => {
             <i className='fas fa-shopping-cart'></i>
             <span>
                 Cart 
-                <span className='sidebar_cartbadge'>0</span>
+                <span className='sidebar_cartbadge'>{getCartCount()}</span>
             </span>
             </Link>
         </li>

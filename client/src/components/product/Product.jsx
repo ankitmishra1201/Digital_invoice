@@ -1,89 +1,24 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './product.css'
-const Product = () => {
+const Product = ({imageUrl, name, price, description, productId}) => {
   return (
-    <>
         <div className="product">
-            <img src="logo192.png" alt="" />
+            <img src={imageUrl} alt={name} />
             <div className="layer">
-                <h3>Heading</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed cupiditate ex, tempore provident nulla impedit esse sequi laudantium harum quia possimus dolorem quidem facere doloribus.</p>
+                <h3>{name}</h3>
+                <p>{description.substring(0,100)}...</p>
                 <div className="layer_tags">
                     <div className=" price">
-                        499$ 
+                        ${price} 
                     </div>
-                    <Link to={`product/${122}dc`} className="link">
+                    <Link to={`product/${productId}`} className="link">
                         Buy Now
                     </Link>
                 </div>
                 
             </div>
         </div>
-        <div className="product">
-            <img src="logo192.png" alt="" />
-            <div className="layer">
-                <h3>Heading</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed cupiditate ex, tempore provident nulla impedit esse sequi laudantium harum quia possimus dolorem quidem facere doloribus.</p>
-                <div className="layer_tags">
-                    <div className=" price">
-                        499$ 
-                    </div>
-                    <Link className="link">
-                        Buy Now
-                    </Link>
-                </div>
-                
-            </div>
-        </div>
-        <div className="product">
-            <img src="logo192.png" alt="" />
-            <div className="layer">
-                <h3>Heading</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed cupiditate ex, tempore provident nulla impedit esse sequi laudantium harum quia possimus dolorem quidem facere doloribus.</p>
-                <div className="layer_tags">
-                    <div className=" price">
-                        499$ 
-                    </div>
-                    <Link className="link">
-                        Buy Now
-                    </Link>
-                </div>
-                
-            </div>
-        </div>
-        <div className="product">
-            <img src="logo192.png" alt="" />
-            <div className="layer">
-                <h3>Heading</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed cupiditate ex, tempore provident nulla impedit esse sequi laudantium harum quia possimus dolorem quidem facere doloribus.</p>
-                <div className="layer_tags">
-                    <div className=" price">
-                        499$ 
-                    </div>
-                    <Link to={`product/${122}dc`} className="link">
-                        Buy Now
-                    </Link>
-                </div>
-            </div>
-        </div>
-        <div className="product">
-            <img src="logo192.png" alt="" />
-            <div className="layer">
-                <h3>Heading</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed cupiditate ex, tempore provident nulla impedit esse sequi laudantium harum quia possimus dolorem quidem facere doloribus.</p>
-                <div className="layer_tags">
-                    <div className=" price">
-                        499$ 
-                    </div>
-                    <Link className="link">
-                        Buy Now
-                    </Link>
-                </div>
-                
-            </div>
-        </div>
-    </>
   )
 }
 
