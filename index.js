@@ -26,7 +26,7 @@ app.use('/api/products',productRoutes);
 app.use('/api/services',serviceRoutes);
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 try {
     app.listen(PORT, ()=>{
         console.log(`Server running on port ${PORT}`);
