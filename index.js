@@ -6,20 +6,19 @@ const productRoutes = require('./routes/productRoutes');
 const serviceRoutes = require('./routes/serviceRoutes');
 const cors = require('cors');
 const path=require('path');
-
-
-app.use(cors());
-app.use(express.static(path.join(__dirname,"/client/build")))
-
 dotenv.config();
 
-connectDB(); // for connecting with our database
 // As we need JSON data to be sent to client
 app.use(express.json());
+app.use(cors());
 
-app.get('/', (req,res)=>{
-    // res.sendFile(path.join(__dirname,"client/build/index.html"))
-    res.json({message: "API running..."});
+connectDB(); // for connecting with our database
+
+//Serving static files
+app.use(express.static(path.join(__dirname,"/client/build")))
+
+app.get('*', (req,res)=>{
+    res.sendFile(path.resolve(__dirname,"client","build","index.html"));
 })
 
 // Routes
