@@ -17,8 +17,8 @@ connectDB(); // for connecting with our database
 //Serving static files
 app.use(express.static(path.join(__dirname,"/client/build")))
 
-app.get('*', (req,res)=>{
-    res.sendFile(path.resolve(__dirname,"client","build","index.html"));
+app.get('/', (req,res)=>{
+    res.json({ message: "Api running successfully"});
 })
 
 // Routes
